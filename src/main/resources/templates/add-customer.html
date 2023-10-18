@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<body>
+<!--입력으로 사용하는 객체의 클래스이름-->
+<form action="#" th:action="@{/customers/addcustomer}" th:object="${customer}"method="post">
+	<label for="name">Name</label>
+	<input type="text" th:field="*{name}" id="name">
+	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+	<br/>
+	<label for="email">Email</label>
+	<input type="text" th:field="*{email}" id="email">
+	<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+	<br/>
+	<input type="submit" value="Add Customer">
+</form>
+</body>
+</html>
